@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<div id="main">
+
+    <!-- Post -->
+        <article class="post">
+            <header>
+                <div class="title">
+                    <h2><a href="#">{{user.username}}</a></h2>
+                    
+                </div>
+                <div class="meta">
+
+                    <a href="#" class="author"><img src="{{user.profile.image.url}}" alt="" /></a>
+                </div>
+            </header>
+            <!-- <a href="#" class="image featured"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a> -->
+            
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">
+                        Profile Info
+                    </legend>
+                    {{user_form|crispy}}
+                    {{profile_form|crispy}}
+                </fieldset>
+                <footer class="mt-4">
+                    <ul class="actions">
+                        <li><button class="button large" type="submit">Update</button></li>
+                    </ul>
+                </footer>  
+            </form>
+            
+        </article>
+
+</div>
+{% endblock %}

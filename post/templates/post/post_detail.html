@@ -1,0 +1,36 @@
+
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<div id="main">
+
+    <!-- Post -->
+        <article class="post">
+            <header>
+                <div class="title">
+                    <h2><a href="#">{{object.title}}</a></h2>
+                    {% if object.author == user%}
+                    <a class="button large" href="{% url 'post-update' object.id %}">Update</a>
+                    <a class="button large" href="{% url 'post-delete' object.id %}">Delete</a>
+                    {% endif %}
+                </div>
+                <div class="meta">
+                    <time class="published" datetime="2015-11-01">{{post.date|date:"F d, Y"}}</time>
+                    <a href="{% url 'profile' %}" class="author"><span class="name">{{user.username}}</span><img src="{{ user.profile.image.url }}" alt="" /></a>
+                </div>
+            </header>
+            <a href="#" class="image featured"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
+            <p>{{post.description}}</p>
+            <footer>
+                
+                <ul class="stats">
+                    <li><a href="#">General</a></li>
+                    <li><a href="#" class="icon solid fa-heart">28</a></li>
+                    <li><a href="#" class="icon solid fa-comment">128</a></li>
+                </ul>
+            </footer>
+        </article>
+
+</div>
+{% endblock %}

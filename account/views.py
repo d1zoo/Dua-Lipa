@@ -41,5 +41,3 @@ def profile(request):
         'profile_form': profile_form
     }
     return render(request, 'account/profile.html', context)
-
-

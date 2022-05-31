@@ -7,9 +7,9 @@
 
     <!-- Post -->
     {% for post in posts %}
-        <article class="post">
+        <article class="post"  >
             <header>
-                <div class="title">
+                <div class="title" >
                     <h2><a href="{% url 'post-detail' post.id %}">{{post.title}}</a></h2>
                     <p></p>
                 </div>
@@ -18,10 +18,10 @@
                     <a href="{% url 'profile' %}" class="author"><span class="name">{{post.author.username}}</span><img src="{{user.profile.image.url}}" alt="" /></a>
                 </div>
             </header>
-            <a href="#" class="image featured"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
-            <p>{{post.description|truncatechars:150}}</p>
+            <a href="#" class="image featured"><img src="{{ post.image.url }}" alt="" /></a>
+            <p>{{post.description|truncatechars:150}} </p>
             <footer>
-                <ul class="actions">
+                <ul class="actions" >
                     <li><a href="{% url 'post-detail' post.id %}" class="button large">Continue Reading</a></li>
                 </ul>
                 <ul class="stats">
@@ -29,6 +29,7 @@
                     <li><a href="#" class="icon solid fa-heart">28</a></li>
                     <li><a href="#" class="icon solid fa-comment">128</a></li>
                 </ul>
+
             </footer>
         </article>
         {% endfor %}

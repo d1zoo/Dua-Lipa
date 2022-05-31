@@ -20,10 +20,9 @@
                     <a href="{% url 'profile' %}" class="author"><span class="name">{{user.username}}</span><img src="{{ user.profile.image.url }}" alt="" /></a>
                 </div>
             </header>
-            <a href="#" class="image featured"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
+            <a href="#" class="image featured"><img src="{{ post.image.url }}" alt="" /></a>
             <p>{{post.description}}</p>
             <footer>
-                
                 <ul class="stats">
                     <li><a href="#">General</a></li>
                     <li><a href="#" class="icon solid fa-heart">28</a></li>
